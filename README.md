@@ -62,9 +62,19 @@ php artisan serve
 So, You've got the project of Laravel Role & Permission Management on your http://localhost:8000
 
 ## How it works
-Use Thunder Client extension in VS code or install PostMan to run API's.
-It has following endpoints.
+Use Thunder Client extension in VS code or install PostMan to run API's.<br/>
+First use the login API to login and get the TOKEN.<br />
+Copy token from Login Api response and send it in Headers [Authorization] in all API calls.<br/>
+Like this: 
+```console
+Authorization : Bearer TOKEN
+```
+E.g: 
+```
+Authorization : Bearer 1|gt5Ledi600LEZbXVkXEjDGuGTtEzCYqjgvd410fpa8a0ae01
+```
 
+## It has following endpoints
 1. Login
 ```php
 POST - http://localhost:8000/api/login
@@ -84,6 +94,37 @@ Optional Parameters
     "tags": "STRING,STRING",  //Comma separated tags
 }
 ```
+3. Create Translation
+```php
+POST http://localhost:8000/api/translations
+Optional Parameters
+{
+    "locale_id": 1,
+    "key": "greeting 2",
+    "value": "Hello 2",
+    "tags": ["mobile", "web"]
+}
+```
+4. Update Translation
+```php
+PUT http://localhost:8000/api/translations/{Translation id}
+Optional Parameters
+{
+    "key": "welcome",
+    "value": "Welcome to our platform",
+    "tags": ["web"]
+}
+```
+5. Export Translations
+```php
+GET http://localhost:8000/api/translations/export/{Language code}
+```
+6. Logout
+```php
+POST - http://localhost:8000/api/logout
+```
+
+
 ## Wanna talk with me
 Please mail me at - waqasalieee@gmail.com
 <br/>Call/Whatsapp at [ +92-321-4105651 ]
