@@ -8,42 +8,45 @@ A factory to populate the database with 100K records.
 ## Requirements:
 - Laravel `11.x`
 - PHPUnit test package `^11.x`
+- Composer is installed [https://getcomposer.org/download/]
 
 ## Project Setup
-Git clone -
+
+Open CMD and go to the folder where you want to put the project.<br/>
+
+Git clone - Clone the project code in that folder using following command. 
 ```console
 git clone https://github.com/waqasalieee/TranslationAPI.git
 ```
+
+
+Open project folder in VS Code or any other code editor. <br/>
+Rename `.env.example` file in project root and do following changes
+```
+#If you want to use MySql for database
+#Comment out sqlite
+#DB_CONNECTION=sqlite
+#And update following
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=translations
+DB_USERNAME=root
+```
+If using MySql, Create a new database in MySql and name it `translations`<br />
+  OR use DB_CONNECTION=sqlite (It will auto create the database)
+
 
 Go to project folder -
 ```console
 cd TranslationAPI
 ```
-
 Install Laravel Dependencies -
 ```console
 composer install
 ```
 
-
-Create database called - `translations`   <--- If using MySql
-<br /> OR use DB_CONNECTION=sqlite (It will auto create the database)
-
-
-Create `.env` file by copying `.env.example` file in project root and do following changes
-```
-#If you want to use MySql for database
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_USERNAME=root
-
-#Database name: 
-DB_DATABASE=translations
-```
-
-
-Generate Artisan Key (If needed) -
+(If needed) Generate Artisan Key -
 ```console
 php artisan key:generate
 ```
