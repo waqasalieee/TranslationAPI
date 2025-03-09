@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Unit;
+
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\Translation;
 use App\Models\Locale;
